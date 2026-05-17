@@ -16,7 +16,7 @@ app.use(helmet());
 
 app.use(express.json());
 
-app.use("/stand", router);
+app.use("/api/v1/stands", router);
 
 app.get("/health", (req: Request, res: Response) => {
   res.sendStatus(200);

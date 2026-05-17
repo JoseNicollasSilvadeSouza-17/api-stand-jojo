@@ -33,24 +33,4 @@ export default class Stand {
     this.limitation = limitation;
     this.author = author;
   }
-
-  public getId(): number | undefined {
-    return this.id;
-  }
-
-  public getName(): string {
-    return this.name;
-  }
-
-  public getNameCopyright(): string | undefined {
-    return this.nameCopyright;
-  }
-
-  public getGraph(): StandGraph {
-    return this.graph;
-  }
-
-  public getSkill(): string | undefined {
-    return this.skill;
-  }
 }

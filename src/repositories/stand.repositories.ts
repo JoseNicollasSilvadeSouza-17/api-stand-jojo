@@ -11,7 +11,11 @@ export default class StandRepository {
   }
 
   async getStand(id: number): Promise<Stand> {
-    const { data, error } = await supabase.from("Stand").select("*").eq("id", id).maybeSingle();
+    const { data, error } = await supabase
+      .from("Stand")
+      .select("*")
+      .eq("id", id)
+      .maybeSingle();
 
     if (error) throw error;
 
@@ -19,15 +23,24 @@ export default class StandRepository {
   }
 
   async addStand(stand: Stand): Promise<Stand> {
-    const { data, error } = await supabase.from("Stand").insert(stand).select().single();
-    
+    const { data, error } = await supabase
+      .from("Stand")
+      .insert(stand)
+      .select()
+      .single();
+
     if (error) throw error;
 
     return data;
   }
 
   async replaceStand(id: number, standData: Omit<Stand, "id">): Promise<Stand> {
-    const { data, error } = await supabase.from("Stand").update(standData).eq("id", id).select().single();
+    const { data, error } = await supabase
+      .from("Stand")
+      .update(standData)
+      .eq("id", id)
+      .select()
+      .single();
 
     if (error) throw error;
 
@@ -35,7 +48,12 @@ export default class StandRepository {
   }
 
   async updateStand(id: number, standData: Partial<Stand>): Promise<Stand> {
-    const { data, error } = await supabase.from("Stand").update(standData).eq("id", id).select().single();
+    const { data, error } = await supabase
+      .from("Stand")
+      .update(standData)
+      .eq("id", id)
+      .select()
+      .single();
 
     if (error) throw error;
 
@@ -43,7 +61,12 @@ export default class StandRepository {
   }
 
   async deleteStand(id: number): Promise<Stand> {
-    const { data, error } = await supabase.from("Stand").delete().eq("id", id).select().single();
+    const { data, error } = await supabase
+      .from("Stand")
+      .delete()
+      .eq("id", id)
+      .select()
+      .single();
 
     if (error) throw error;
 
