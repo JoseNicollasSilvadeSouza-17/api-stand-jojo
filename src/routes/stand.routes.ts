@@ -10,4 +10,10 @@ router.get("/:id", standControllers.getStand);
 
 router.post("/", standControllers.postStand);
 
+router.put("/:id", standControllers.putStand);
+
+router.patch("/:id", standControllers.patchStand);
+
+router.delete("/:id", standControllers.deleteStand);
+
 export default router;

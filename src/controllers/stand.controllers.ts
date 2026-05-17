@@ -35,4 +35,33 @@ export default class StandControllers {
 
     res.status(201).json(result);
   }
+
+  async putStand(req: Request, res: Response) {
+    const id = Number(req.params.id);
+    const standData = req.body;
+    const result = await standRepository.replaceStand(id, standData);
+
+    if (!result) res.sendStatus(404);
+
+    res.status(201).json(result);
+  }
+
+  async patchStand(req: Request, res: Response) {
+    const id = Number(req.params.id);
+    const standData = req.body;
+    const result = await standRepository.updateStand(id, standData);
+
+    if (!result) res.sendStatus(404);
+
+    res.status(201).json(result);
+  }
+
+  async deleteStand(req: Request, res: Response) {
+    const id = Number(req.params.id);
+    const result = await standRepository.deleteStand(id);
+
+    if (!result) res.sendStatus(404);
+
+    res.sendStatus(204);
+  }
 }

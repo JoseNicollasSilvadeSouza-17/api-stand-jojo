@@ -25,4 +25,28 @@ export default class StandRepository {
 
     return data;
   }
+
+  async replaceStand(id: number, standData: Omit<Stand, "id">): Promise<Stand> {
+    const { data, error } = await supabase.from("Stand").update(standData).eq("id", id).select().single();
+
+    if (error) throw error;
+
+    return data;
+  }
+
+  async updateStand(id: number, standData: Partial<Stand>): Promise<Stand> {
+    const { data, error } = await supabase.from("Stand").update(standData).eq("id", id).select().single();
+
+    if (error) throw error;
+
+    return data;
+  }
+
+  async deleteStand(id: number): Promise<Stand> {
+    const { data, error } = await supabase.from("Stand").delete().eq("id", id).select().single();
+
+    if (error) throw error;
+
+    return data;
+  }
 }
