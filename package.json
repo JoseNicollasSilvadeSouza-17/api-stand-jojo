@@ -1,0 +1,37 @@
+{
+  "name": "api_stand_jojo",
+  "version": "1.0.0",
+  "description": "API Stand JoJo's Bizarre Adventure",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "npx tsx --watch src/server.ts",
+    "compile": "npx tsc",
+    "start": "node ./dist/server.js"
+  },
+  "keywords": [
+    "API",
+    "Stand",
+    "JoJo",
+    "JoJo's Bizarre Adventure"
+  ],
+  "author": {
+    "name": "José Nícollas Silva de Souza",
+    "email": "josenicollassilvadesouza@gmail.com"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.66.0",
+    "@supabase/supabase-js": "^2.105.4",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.0",
+    "typescript": "^6.0.3"
+  }
+}
