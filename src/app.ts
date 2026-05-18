@@ -7,7 +7,6 @@ import express, {
 import morgan from "morgan";
 import helmet from "helmet";
 import router from "./routes/stand.routes.js";
-import path from "node:path";
 import promMetrics from "./utils/metrics.js";
 
 const app: Application = express();
@@ -22,6 +21,10 @@ app.use("/api/v1/stands", router);
 
 app.get("/health", (req: Request, res: Response) => {
   res.sendStatus(200);
+});
+
+app.get("/version", (req: Request, res: Response) => {
+  res.json({ version: "1.0.0" });
 });
 
 app.get("/metrics", promMetrics);
