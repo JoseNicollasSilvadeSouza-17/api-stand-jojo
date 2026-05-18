@@ -7,6 +7,7 @@ import express, {
 import morgan from "morgan";
 import helmet from "helmet";
 import router from "./routes/stand.routes.js";
+import path from "node:path";
 
 const app: Application = express();
 
@@ -15,6 +16,8 @@ app.use(morgan("dev"));
 app.use(helmet());
 
 app.use(express.json());
+
+// app.use("/files", express.static(path.resolve("uploads")));
 
 app.use("/api/v1/stands", router);
 
