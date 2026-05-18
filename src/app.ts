@@ -8,6 +8,7 @@ import morgan from "morgan";
 import helmet from "helmet";
 import router from "./routes/stand.routes.js";
 import path from "node:path";
+import promMetrics from "./utils/metrics.js";
 
 const app: Application = express();
 
@@ -17,13 +18,13 @@ app.use(helmet());
 
 app.use(express.json());
 
-// app.use("/files", express.static(path.resolve("uploads")));
-
 app.use("/api/v1/stands", router);
 
 app.get("/health", (req: Request, res: Response) => {
   res.sendStatus(200);
 });
+
+app.get("/metrics", promMetrics);
 
 app.use((error: unknown, req: Request, res: Response, next: NextFunction) => {
   console.error(error);
